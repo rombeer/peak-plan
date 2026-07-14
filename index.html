@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peak Plan · 10. August</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rb-black:#0A0A0A; --rb-anthrazit:#2C2C2E; --rb-anthrazit2:#3A3A3C;
+    --rb-white:#FFFFFF; --rb-white-soft:#E8E8E8; --rb-blue:#1392FC;
+    --muted:#6b6b70; --line:#dcdcdf;
+    --font-head:'Bebas Neue','Arial Narrow',sans-serif;
+    --font-body:'Barlow','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--rb-white);color:var(--rb-anthrazit);font-family:var(--font-body);line-height:1.6;letter-spacing:.012em}
+  b,strong{font-weight:600}
+  /* Kein Bold im Fliesstext — Fettung nur für Labels (Tabellen-Erstspalte), Zahlen-Kacheln, CTAs */
+  p b, li b, .tip b, .warn b, p strong, li strong{font-weight:400}
+  .warn b{text-transform:uppercase;letter-spacing:.05em}
+  .wrap{max-width:980px;margin:0 auto;padding:24px 20px 80px}
+  header{padding:28px 0 18px;border-bottom:3px solid var(--rb-anthrazit)}
+  .rb-mark{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--rb-black);color:var(--rb-white);font-family:var(--font-body);font-weight:700;font-size:1.15rem;margin-bottom:14px}
+  header h1{font-family:var(--font-head);font-weight:400;font-size:3rem;line-height:1;letter-spacing:.06em;text-transform:uppercase;color:var(--rb-black)}
+  header h1 span{color:var(--rb-blue)}
+  header p{color:var(--rb-anthrazit2);margin-top:10px;max-width:660px;font-size:.97rem}
+  .countdown{display:inline-block;margin:14px 0 20px;background:var(--rb-white-soft);border-radius:10px;padding:8px 16px;font-weight:700;letter-spacing:.02em}
+  .countdown b{color:var(--rb-blue);font-size:1.1rem}
+  nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);display:flex;gap:6px;overflow-x:auto;padding:12px 0;border-bottom:1px solid var(--line);margin-bottom:22px}
+  nav button{flex:0 0 auto;background:var(--rb-white);color:var(--rb-anthrazit);border:1.5px solid var(--rb-anthrazit);border-radius:10px;padding:8px 16px;font-family:var(--font-body);font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;transition:.15s}
+  nav button.active{background:var(--rb-blue);color:var(--rb-white);border-color:var(--rb-blue)}
+  nav button:hover:not(.active){background:var(--rb-white-soft)}
+  section{display:none}
+  section.show{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  h2{font-family:var(--font-head);font-weight:400;font-size:1.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--rb-black);margin:30px 0 12px;border-bottom:1px solid var(--rb-anthrazit);padding-bottom:6px}
+  h2:first-child{margin-top:0}
+  h3{font-family:var(--font-head);font-weight:400;font-size:1.25rem;letter-spacing:.06em;text-transform:uppercase;color:var(--rb-anthrazit);margin:22px 0 8px}
+  p.note{color:var(--muted);font-size:.94rem}
+  .grid{display:grid;gap:14px}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .card{background:var(--rb-white-soft);border-radius:14px;padding:18px}
+  .card h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.09em;color:var(--rb-anthrazit2);margin-bottom:6px;font-weight:700}
+  .big{font-family:var(--font-body);font-size:1.75rem;font-weight:700;letter-spacing:0;color:var(--rb-black);line-height:1.15}
+  .big small{font-size:.82rem;color:var(--muted);font-weight:500}
+  .accent{color:var(--rb-black)} .green{color:var(--rb-blue)} .blue{color:var(--rb-black)}
+  table{width:100%;border-collapse:collapse;font-size:.92rem;margin:10px 0}
+  th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--rb-anthrazit);font-size:.75rem;text-transform:uppercase;letter-spacing:.07em;border-bottom:2px solid var(--rb-anthrazit)}
+  tr:last-child td{border-bottom:none}
+  .tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.05em;padding:2px 10px;border-radius:999px;margin-right:4px}
+  .t-push{background:var(--rb-anthrazit);color:var(--rb-white)}
+  .t-pull{background:var(--rb-anthrazit2);color:var(--rb-white)}
+  .t-bike{background:var(--rb-white);color:var(--rb-anthrazit);border:1.5px solid var(--rb-anthrazit)}
+  .t-rest{background:var(--rb-white-soft);color:var(--muted)}
+  .t-peak{background:var(--rb-blue);color:var(--rb-white)}
+  ul{margin:8px 0 8px 20px}
+  li{margin:5px 0}
+  .warn{background:var(--rb-anthrazit);color:var(--rb-white);border-radius:12px;padding:14px 16px;margin:14px 0;font-size:.93rem}
+  .warn b{color:var(--rb-white);text-transform:uppercase;letter-spacing:.04em}
+  .tip{background:var(--rb-white-soft);border-left:4px solid var(--rb-anthrazit);border-radius:0 12px 12px 0;padding:14px 16px;margin:14px 0;font-size:.93rem}
+  .tip b{color:var(--rb-black)}
+  details{background:var(--rb-white);border:1px solid var(--rb-anthrazit);border-radius:12px;padding:0;margin:10px 0;overflow:hidden}
+  summary{cursor:pointer;padding:13px 16px;font-weight:700;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  summary::after{content:"+";color:var(--rb-blue);font-size:1.3rem;font-weight:400}
+  details[open] summary::after{content:"–"}
+  details .inner{padding:0 16px 14px}
+  .check{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);cursor:pointer}
+  .check:last-child{border-bottom:none}
+  .check input{margin-top:4px;accent-color:var(--rb-blue);width:16px;height:16px;flex:0 0 auto}
+  .check span{font-size:.94rem}
+  .en{color:var(--muted);font-size:.82rem}
+  td b{font-weight:600}
+  .filterbar{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0 8px}
+  .filterbar button{background:var(--rb-white);color:var(--rb-anthrazit);border:1.5px solid var(--rb-anthrazit);border-radius:999px;padding:5px 15px;font-family:var(--font-body);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;transition:.15s}
+  .filterbar button.active{background:var(--rb-anthrazit);color:var(--rb-white)}
+  .filterbar button:hover:not(.active){background:var(--rb-white-soft)}
+  .ex-group.hidden{display:none}
+  footer{margin-top:40px;color:var(--muted);font-size:.82rem;border-top:3px solid var(--rb-anthrazit);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="rb-mark">rb</div>
+  <h1>Peak Plan · <span>10. August 2026</span></h1>
+  <p>4-Wochen-Programm nach Bodybuilding-Prinzipien: aggressiver, aber muskelschonender Cut über 3 Wochen, danach eine klassische Peak Week fürs Shooting. Erstellt am 13. Juli für Roman (47, 188&nbsp;cm, 102&nbsp;kg, Bench 5×100&nbsp;kg).</p>
+  <div class="countdown">Noch <b id="days">–</b> Tage bis zum Event</div>
+</header>
+
+<nav id="nav">
+  <button data-t="ueberblick" class="active">Überblick</button>
+  <button data-t="training">Training</button>
+  <button data-t="ernaehrung">Ernährung</button>
+  <button data-t="peakweek">Peak Week</button>
+  <button data-t="uebungen">Übungen</button>
+  <button data-t="supps">Supplemente</button>
+  <button data-t="regeln">Regeln & Tracking</button>
+</nav>
+
+<!-- ================= ÜBERBLICK ================= -->
+<section id="ueberblick" class="show">
+  <div class="grid g3">
+    <div class="card"><h4>Start heute</h4><div class="big">102 <small>kg · 13. Juli</small></div></div>
+    <div class="card"><h4>Realistisch am 10.8.</h4><div class="big green">97–98 <small>kg, sichtbar definierter</small></div></div>
+    <div class="card"><h4>Ziel-Defizit</h4><div class="big accent">~1000 <small>kcal/Tag ≈ 1 kg/Woche</small></div></div>
+  </div>
+
+  <h2>Ehrliche Einordnung</h2>
+  <p>Dein Erhaltungsbedarf liegt bei ca. <b>3200 kcal/Tag</b> (Grundumsatz ~1965 kcal + dein hohes Aktivitätslevel). In 4 Wochen sind <b>3,5–4,5 kg Fettverlust</b> machbar — mehr geht nur auf Kosten von Muskulatur, und die ist am 10.8. dein Kapital. Die Peak Week holt zusätzlich optisch 1–2 kg Wasser raus und füllt die Muskeln praller. <b>90 kg</b> sind ein sauberes Ziel für ~Ende November, wenn du nach dem Event im moderateren Tempo weitermachst. Dieser Plan bringt dich am 10.8. in die bestmögliche Form, die in 4 Wochen physiologisch drin liegt.</p>
+
+  <h2>Die 4 Wochen auf einen Blick</h2>
+  <table>
+    <tr><th>Woche</th><th>Datum</th><th>Fokus</th></tr>
+    <tr><td><b>1</b></td><td>13.–19. Juli</td><td>Einstieg Defizit (2300 kcal), Tracking etablieren, Kreatin starten, Training wie gewohnt schwer</td></tr>
+    <tr><td><b>2</b></td><td>20.–26. Juli</td><td>Vollgas: 5 Gym-Sessions + 3 Velo-Einheiten, Doppelsessions Mo &amp; Fr</td></tr>
+    <tr><td><b>3</b></td><td>27. Juli – 2. Aug</td><td>Letzte harte Woche, Gewichts-Checkpoint: bist du bei ~99 kg?</td></tr>
+    <tr><td><b>4</b></td><td>3.–9. Aug</td><td><span class="tag t-peak">PEAK WEEK</span> Glykogen leeren → Carb-up → Wasser timen</td></tr>
+    <tr><td><b>🎯</b></td><td>Mo 10. Aug</td><td>Event-Tag: Pump-Protokoll am Morgen, salzige Carbs 2–3 h vorher</td></tr>
+  </table>
+
+  <h2>Die 5 Hebel, nach Wirkung sortiert</h2>
+  <ul>
+    <li><b>1. Kaloriendefizit tracken</b> — entscheidet zu ~70 % über dein Ergebnis. Waage + App, jeden Tag.</li>
+    <li><b>2. Protein 210 g/Tag</b> — schützt deine Muskeln im Defizit. Nicht verhandelbar.</li>
+    <li><b>3. Schwer weitertrainieren</b> — die Gewichte halten, nicht auf „leicht und viel" umstellen. Schwere Reize sagen dem Körper: Muskel behalten.</li>
+    <li><b>4. Zone-2-Volumen aufs Velo</b> — dein grösster Kalorienverbrenner (deine Ausfahrten verbrennen 900–2300 kcal), ohne die Regeneration zu killen.</li>
+    <li><b>5. Schlaf 7–8 h</b> — bei 2 Sessions/Tag und Defizit sonst Übertraining und Heisshunger.</li>
+  </ul>
+</section>
+
+<!-- ================= TRAINING ================= -->
+<section id="training">
+  <h2>Wochenstruktur (Wochen 1–3)</h2>
+  <p class="note">3er-Split-Logik wie du sie kennst: Push / Pull / Beine-via-Velo. Bei Schlechtwetter ersetzt die Gym-Beinsession die Ausfahrt. Doppelsessions: Gym am Morgen, Velo am Abend — mindestens 6 h dazwischen, Velo dann immer locker (Zone 2).</p>
+  <table>
+    <tr><th>Tag</th><th>Vormittag</th><th>Abend (optional)</th></tr>
+    <tr><td><b>Mo</b></td><td><span class="tag t-push">PUSH</span> A — schwer</td><td><span class="tag t-bike">VELO</span> Z2 locker, 45–60 min</td></tr>
+    <tr><td><b>Di</b></td><td><span class="tag t-pull">PULL</span> A</td><td>—</td></tr>
+    <tr><td><b>Mi</b></td><td><span class="tag t-bike">VELO</span> 30–40 km Z2 <i>oder</i> <span class="tag t-push">BEINE</span> Gym bei Regen</td><td>—</td></tr>
+    <tr><td><b>Do</b></td><td><span class="tag t-push">PUSH</span> B — Volumen/Pump</td><td>—</td></tr>
+    <tr><td><b>Fr</b></td><td><span class="tag t-pull">PULL</span> B</td><td><span class="tag t-bike">VELO</span> Z2 locker, 45–60 min</td></tr>
+    <tr><td><b>Sa</b></td><td><span class="tag t-bike">VELO</span> Lange Ausfahrt 60–80 km, ~500 Hm</td><td>—</td></tr>
+    <tr><td><b>So</b></td><td><span class="tag t-rest">REST</span> Spaziergang 60+ min oder ganz frei</td><td>—</td></tr>
+  </table>
+
+  <div class="tip"><b>Intensität steuern:</b> Deine Strava-Daten zeigen einige sehr harte Ausfahrten (Relative Effort 107–135). Im Defizit fährst du 80 % der Velozeit locker (Puls ~120–135, du kannst reden). Nur die Samstags-Ausfahrt darf zügig sein. Harte Intervalle + Kaloriendefizit + 5× Krafttraining = Rezept für Einbruch in Woche 3.</div>
+
+  <h3>Push A — schwer (Mo)</h3>
+  <details open><summary>Kraft erhalten = Muskeln erhalten</summary><div class="inner">
+    <table>
+      <tr><th>Übung</th><th>Sätze × Wdh</th><th>Notiz</th></tr>
+      <tr><td>Bankdrücken LH</td><td>4 × 4–6</td><td>90–95 kg. Top-Satz gerne bei 97,5–100. Kraft halten ist das Ziel, nicht steigern.</td></tr>
+      <tr><td>Schrägbank KH-Drücken</td><td>3 × 8–10</td><td>Obere Brust = Bühnen-Optik</td></tr>
+      <tr><td>Schulterdrücken KH sitzend</td><td>3 × 8–10</td><td>Mit Rückenlehne (Bandscheiben)</td></tr>
+      <tr><td>Seitheben KH</td><td>4 × 12–15</td><td>Breite Schultern machen die Taille optisch schmaler</td></tr>
+      <tr><td>Trizeps am Seil</td><td>3 × 12–15</td><td>—</td></tr>
+    </table>
+  </div></details>
+
+  <h3>Push B — Volumen/Pump (Do)</h3>
+  <details><summary>Mehr Wiederholungen, kürzere Pausen</summary><div class="inner">
+    <table>
+      <tr><th>Übung</th><th>Sätze × Wdh</th><th>Notiz</th></tr>
+      <tr><td>Brustpresse Maschine o. KH Flachbank</td><td>4 × 10–12</td><td>60–90 s Pause</td></tr>
+      <tr><td>Butterfly / Cable Fly</td><td>3 × 12–15</td><td>—</td></tr>
+      <tr><td>Arnold Press o. Maschine Schulter</td><td>3 × 10–12</td><td>—</td></tr>
+      <tr><td>Seitheben Kabel einarmig</td><td>4 × 15–20</td><td>Schulter-Priorität, 2× pro Woche</td></tr>
+      <tr><td>Dips (Bank) o. French Press</td><td>3 × 12–15</td><td>—</td></tr>
+    </table>
+  </div></details>
+
+  <h3>Pull A &amp; B (Di / Fr) — bandscheibenfreundlich</h3>
+  <details><summary>Moderate Last, hohe Wiederholungen — genau richtig</summary><div class="inner">
+    <p class="note">Dein Instinkt (weniger Gewicht, mehr Wdh am Rücken) ist wissenschaftlich sauber: Muskelaufbau/-erhalt funktioniert bei 10–20 Wdh genauso, solange du nahe ans Muskelversagen gehst. Entscheidend: Wirbelsäule aus der Lastkette nehmen — alles brustgestützt oder an der Maschine.</p>
+    <table>
+      <tr><th>Übung</th><th>Sätze × Wdh</th><th>Notiz</th></tr>
+      <tr><td>Latzug breit (A) / enger Griff (B)</td><td>4 × 10–12</td><td>Kontrolliert, kein Schwung</td></tr>
+      <tr><td>Rudern brustgestützt o. Maschine</td><td>4 × 12–15</td><td>Kein freies vorgebeugtes Rudern</td></tr>
+      <tr><td>Einarmiges KH-Rudern, Hand aufgestützt</td><td>3 × 10–12</td><td>Rücken bleibt neutral, Bauchspannung</td></tr>
+      <tr><td>Face Pulls</td><td>3 × 15–20</td><td>Schultergesundheit + hintere Schulter</td></tr>
+      <tr><td>Curls LH-SZ (A) / Hammer Curls (B)</td><td>3 × 10–12</td><td>—</td></tr>
+      <tr><td>McGill Big 3 als Abschluss</td><td>je 2 Runden</td><td>Curl-up, Side Plank, Bird Dog — Rumpfstabilität für die Bandscheiben</td></tr>
+    </table>
+  </div></details>
+
+  <h3>Beine im Gym (nur bei Schlechtwetter statt Mi-Ausfahrt)</h3>
+  <details><summary>Rückenschonende Auswahl</summary><div class="inner">
+    <table>
+      <tr><th>Übung</th><th>Sätze × Wdh</th><th>Notiz</th></tr>
+      <tr><td>Beinpresse</td><td>4 × 12–15</td><td>Unterer Rücken bleibt an der Lehne, nicht zu tief</td></tr>
+      <tr><td>Beinstrecker</td><td>3 × 15</td><td>—</td></tr>
+      <tr><td>Beinbeugen liegend</td><td>3 × 12–15</td><td>—</td></tr>
+      <tr><td>Wadenheben stehend o. an Presse</td><td>4 × 15–20</td><td>—</td></tr>
+    </table>
+    <p class="note">Kein Kreuzheben, keine Langhantel-Kniebeugen — das Risiko/Nutzen-Verhältnis stimmt mit 2 Bandscheibenvorfällen und 4 Wochen bis zum Event nicht.</p>
+  </div></details>
+
+  <div class="warn"><b>Stopp-Signal Rücken:</b> Bei ausstrahlenden Schmerzen, Kribbeln oder Taubheit in Bein/Fuss → Session sofort abbrechen und ärztlich abklären. Kein Plan ist ein Shooting wert, wenn die Bandscheibe wieder aufmacht.</div>
+</section>
+
+<!-- ================= ERNÄHRUNG ================= -->
+<section id="ernaehrung">
+  <h2>Deine Zahlen (Wochen 1–3)</h2>
+  <div class="grid g3">
+    <div class="card"><h4>Gym- &amp; Ruhetage</h4><div class="big">2300 <small>kcal</small></div><p class="note">P 210 g · F 70 g · KH ~200 g</p></div>
+    <div class="card"><h4>Lange Velotage (50 km+)</h4><div class="big blue">2800 <small>kcal</small></div><p class="note">P 210 g · F 70 g · KH ~325 g</p></div>
+    <div class="card"><h4>Protein immer</h4><div class="big accent">210 <small>g/Tag</small></div><p class="note">≈ 2,1 g pro kg Körpergewicht</p></div>
+  </div>
+
+  <div class="tip"><b>So funktioniert's:</b> An langen Velotagen isst du mehr — die Ausfahrt verbrennt 1500–2300 kcal, dein Defizit bleibt trotzdem gross, und die zusätzlichen Kohlenhydrate wirken wie ein Refeed: Training bleibt stark, Stoffwechsel und Kopf bleiben frisch. Extra-Carbs vor allem vor/während/nach der Ausfahrt einbauen.</div>
+
+  <h3>Tracking-Setup (Tag 1, heute)</h3>
+  <ul>
+    <li>App: <b>MacroFactor</b> (bester Algorithmus, passt Kalorien wöchentlich automatisch an) oder Yazio/MyFitnessPal.</li>
+    <li>Küchenwaage verwenden — schätzen liegt bei Cut-Erfahrung typisch 20–30 % daneben.</li>
+    <li>Alles tracken, auch Öl, Milch im Kaffee, das Bier. <b>Alkohol bis 10.8.: null.</b></li>
+  </ul>
+
+  <h3>Beispieltag (Gym-Tag, 2300 kcal)</h3>
+  <table>
+    <tr><th>Mahlzeit</th><th>Inhalt</th><th>~Makros</th></tr>
+    <tr><td><b>Frühstück</b></td><td>Dein Müsli, aber: 40 g Proteinpulver (statt 20), Portion Haferflocken auf 50–60 g begrenzen, Beeren, Magerquark dazu</td><td>45 P / 55 KH / 10 F</td></tr>
+    <tr><td><b>Mittag</b></td><td>250 g Poulet/mageres Rind + grosser Gemüseberg + 150 g Reis o. Kartoffeln (gewogen gekocht: ~200 g)</td><td>60 P / 60 KH / 12 F</td></tr>
+    <tr><td><b>Post-Workout</b></td><td>Whey-Shake 30 g + Banane</td><td>27 P / 30 KH / 2 F</td></tr>
+    <tr><td><b>Abendessen</b></td><td>250 g Fisch/Poulet/Quorn + Gemüse + Salat mit 1 EL Olivenöl, wenig/keine KH (dein Low-Carb-Instinkt passt hier)</td><td>55 P / 15 KH / 25 F</td></tr>
+    <tr><td><b>Vor dem Schlafen</b></td><td>Magerquark 250 g o. Casein-Shake + 20 g Nüsse</td><td>28 P / 10 KH / 15 F</td></tr>
+  </table>
+  <p class="note">Summe ≈ 2100–2300 kcal, 215 g Protein — die Reserve nutzt du für Öl, Milch im Kaffee &amp; Co. An Velotagen: +100–125 g KH via Reis/Reiswaffeln/Banane/Sportgetränk rund um die Ausfahrt.</p>
+
+  <h3>Wöchentlicher Checkpoint (jeden Montagmorgen)</h3>
+  <ul>
+    <li>Täglich wiegen (morgens, nüchtern, nach WC), <b>Wochenschnitt</b> zählt — Tagesschwankungen ignorieren.</li>
+    <li>Wochenschnitt sinkt um <b>0,8–1,2 kg</b> → perfekt, nichts ändern.</li>
+    <li>Weniger als 0,7 kg → Gym-Tage auf 2150 kcal senken.</li>
+    <li>Mehr als 1,4 kg → 100–150 kcal drauflegen (zu schnell = Muskelverlust).</li>
+    <li>Zielmarken: <b>20.7.: ~101 kg · 27.7.: ~100 kg · 3.8.: ~99 kg</b></li>
+  </ul>
+</section>
+
+<!-- ================= PEAK WEEK ================= -->
+<section id="peakweek">
+  <h2>Peak Week: 3.–9. August</h2>
+  <p>Das klassische Bodybuilder-Protokoll in der natural-sinnvollen Variante: Glykogen leeren → superkompensieren → Wasser timen. Ergebnis: vollere Muskeln, dünnere Haut-Optik, mehr Vaskularität — am richtigen Tag.</p>
+
+  <table>
+    <tr><th>Tag</th><th>Kohlenhydrate</th><th>Wasser</th><th>Training</th></tr>
+    <tr><td><b>Mo 3.8.</b></td><td>80–100 g</td><td>5 L</td><td>Ganzkörper, 3 Sätze × 15–20 Wdh pro Muskelgruppe (Glykogen leeren)</td></tr>
+    <tr><td><b>Di 4.8.</b></td><td>80–100 g</td><td>5 L</td><td>Velo Z2 locker 45–60 min</td></tr>
+    <tr><td><b>Mi 5.8.</b></td><td>80–100 g</td><td>5 L</td><td>Ganzkörper hochvolumig wie Mo — letzte harte Einheit</td></tr>
+    <tr><td><b>Do 6.8.</b></td><td><b>450–500 g</b> (Carb-up!)</td><td>4 L</td><td>Frei</td></tr>
+    <tr><td><b>Fr 7.8.</b></td><td><b>450–500 g</b></td><td>3–4 L</td><td>Leichtes Pump-Training 20 min (kein Muskelkater provozieren)</td></tr>
+    <tr><td><b>Sa 8.8.</b></td><td>250–300 g</td><td>3 L</td><td>Frei, Spaziergang</td></tr>
+    <tr><td><b>So 9.8.</b></td><td>150–200 g</td><td>Bis Mittag normal, ab Nachmittag nur schluckweise (~1,5 L total)</td><td>Frei. Abends salzarm essen.</td></tr>
+  </table>
+
+  <h3>Carb-up-Quellen (Do–Fr)</h3>
+  <ul>
+    <li>Reis, Kartoffeln, Reiswaffeln, Cornflakes, Weissbrot, Honig, Banane — <b>fettarm und ab Freitag ballaststoffarm</b> (kein Vollkorn, wenig Rohgemüse → flacher Bauch).</li>
+    <li>Protein bleibt bei ~180–210 g, Fett runter auf 40–50 g.</li>
+    <li>Salz während der ganzen Woche <b>normal</b> weiterverwenden — Natrium-Roulette am Ende geht meist schief.</li>
+  </ul>
+
+  <h3>Event-Tag, Montag 10.8.</h3>
+  <ul>
+    <li>Frühstück: salzige, kohlenhydratreiche Mahlzeit 2–3 h vor dem Termin (z.B. Reiswaffeln mit Honig + Eier + gesalzen).</li>
+    <li>30–45 min vorher: <b>Pump-Protokoll</b> — 3 Runden: Liegestütze × 15, Seitheben mit Band/Flasche × 20, Curls × 15, kurze Pausen. Beine/Bauch nicht pumpen.</li>
+    <li>Wasser nur schluckweise, dunkles Shirt-Gefühl: 1 Stück dunkle Schokolade + Espresso 30 min vorher gibt Extra-Vaskularität.</li>
+    <li>Kreatin auch heute normal nehmen.</li>
+  </ul>
+
+  <div class="warn"><b>Nicht machen:</b> Diuretika, komplettes Wasserfasten, Natrium auf null, Saunamarathons. Das riskieren Profis mit Coach und Blutbild — für dich heisst das nur flacher Look, Krämpfe oder Kreislaufprobleme. Der Plan oben holt 90 % des Effekts ohne Risiko.</div>
+</section>
+
+<!-- ================= ÜBUNGEN ================= -->
+<section id="uebungen">
+  <h2>Die besten Übungen pro Muskelgruppe</h2>
+  <div class="filterbar" id="exfilter">
+    <button data-g="all" class="active">Alle</button>
+    <button data-g="chest">Chest</button>
+    <button data-g="back">Back</button>
+    <button data-g="shoulders">Shoulders</button>
+    <button data-g="legs">Legs</button>
+  </div>
+
+  <div class="ex-group" data-g="chest">
+  <h3>Chest · Brust</h3>
+  <table>
+    <tr><th>#</th><th>Übung</th><th>Erklärung</th></tr>
+    <tr><td>1</td><td><b>Fliegende mit Kurzhanteln</b><br><span class="en">Dumbbell Fly, flache Bank</span></td><td>Maximale Dehnung und Isolation der Brust ohne Trizeps-Beteiligung. Leicht gebeugte Arme, Gewicht moderat — die Dehnung unten ist der Wachstumsreiz.</td></tr>
+    <tr><td>2</td><td><b>Kurzhantel-Bankdrücken, Schrägbank</b><br><span class="en">Incline Dumbbell Press</span></td><td>Trifft die obere Brust besser als jede Flachbank-Variante. Kurzhanteln erlauben eine tiefere Absenkung und gleichen Kraftunterschiede zwischen links und rechts aus.</td></tr>
+    <tr><td>3</td><td><b>Kabel-Crossover</b><br><span class="en">Cable Crossover</span></td><td>Konstante Spannung über den ganzen Bewegungsweg, besonders in der Endkontraktion. Ideal als Abschluss-Übung für den Pump.</td></tr>
+    <tr><td>4</td><td><b>Fliegende am Kabelzug</b><br><span class="en">Cable Fly</span></td><td>Wie Kurzhantel-Fliegende, aber die Spannung bleibt auch im gestreckten Zustand erhalten. Gelenkschonender, weil das Kabel die Bewegung führt.</td></tr>
+    <tr><td>5</td><td><b>Kurzhantel-Bankdrücken, Schrägbank steil</b><br><span class="en">High-Incline Dumbbell Press</span></td><td>Steilere Lehne (45–60°) verschiebt den Fokus noch weiter auf den oberen Brustansatz Richtung Schlüsselbein — die Region, die das Shirt füllt.</td></tr>
+    <tr><td>6</td><td><b>Langhantel-Bankdrücken, flache Bank</b><br><span class="en">Barbell Bench Press</span></td><td>Dein Kraft-Grundpfeiler: höchste Lastaufnahme für den Erhalt von Kraft und Masse. Schulterblätter zusammenziehen, Füsse fest am Boden.</td></tr>
+    <tr><td>7</td><td><b>Einarmige Kabelzüge im Knien</b><br><span class="en">Single-Arm Kneeling Cable Fly</span></td><td>Einseitige Arbeit deckt Kraftungleichgewichte auf und erlaubt volle Konzentration auf die Muskelkontraktion. Kniender Stand stabilisiert den Rumpf.</td></tr>
+    <tr><td>8</td><td><b>Langhantel-Bankdrücken, Schrägbank</b><br><span class="en">Incline Barbell Bench Press</span></td><td>Schwere Grundübung für die obere Brust. Etwas weniger Bewegungsumfang als mit Kurzhanteln, dafür mehr Last möglich.</td></tr>
+    <tr><td>9</td><td><b>Bankdrücken Smith-Maschine, Schrägbank</b><br><span class="en">Incline Smith Machine Press</span></td><td>Geführte Bewegung nimmt die Stabilisationsarbeit weg — du kannst näher ans Muskelversagen trainieren, auch ohne Spotter. Gut am Ende der Session.</td></tr>
+  </table>
+  </div>
+
+  <div class="ex-group" data-g="back">
+  <h3>Back · Rücken</h3>
+  <table>
+    <tr><th>#</th><th>Übung</th><th>Erklärung</th></tr>
+    <tr><td>1</td><td><b>Latzug breit</b><br><span class="en">Lat Pulldown</span></td><td>Die sicherste Breite-Übung für den Lat: Wirbelsäule bleibt entlastet, Last exakt dosierbar. Zur Brust ziehen, kein Schwung.</td></tr>
+    <tr><td>2</td><td><b>Rudern brustgestützt</b><br><span class="en">Chest-Supported Row</span></td><td>Die Brustauflage nimmt die Scherkräfte komplett von der Lendenwirbelsäule — für dich die beste Ruder-Variante. Dicke des oberen Rückens.</td></tr>
+    <tr><td>3</td><td><b>Rudermaschine</b><br><span class="en">Seated Machine Row</span></td><td>Geführte, rückenfreundliche Alternative mit konstanter Spannung. Ideal für hohe Wiederholungen nahe am Muskelversagen.</td></tr>
+    <tr><td>4</td><td><b>Einarmiges Kurzhantel-Rudern, aufgestützt</b><br><span class="en">One-Arm Dumbbell Row</span></td><td>Hand und Knie auf der Bank stützen den Rücken, die freie Seite arbeitet durch grossen Bewegungsumfang. Rumpf bleibt neutral und angespannt.</td></tr>
+    <tr><td>5</td><td><b>Klimmzüge o. unterstützte Klimmzüge</b><br><span class="en">Pull-up / Assisted Pull-up</span></td><td>Der Klassiker für Breite. Kontrolliert ohne Kipping ist er auch mit Bandscheiben-Vorgeschichte gut machbar; sonst Maschine als Unterstützung.</td></tr>
+    <tr><td>6</td><td><b>Kabelrudern sitzend</b><br><span class="en">Seated Cable Row</span></td><td>Konstante Kabelspannung über den ganzen Zug. Oberkörper bleibt aufrecht und ruhig — nicht mitschwingen, sonst wandert die Last in die Lendenwirbelsäule.</td></tr>
+    <tr><td>7</td><td><b>Überzüge am Kabel, gestreckte Arme</b><br><span class="en">Straight-Arm Pulldown</span></td><td>Isoliert den Lat ohne Bizeps-Beteiligung und ganz ohne Wirbelsäulenlast. Perfekt, um den Lat vor dem Rudern zu aktivieren oder am Ende auszubrennen.</td></tr>
+    <tr><td>8</td><td><b>Face Pulls</b><br><span class="en">Face Pull</span></td><td>Hintere Schulter und äussere Rotatoren — hält die Schultern gesund bei viel Drückvolumen und verbessert die Haltung.</td></tr>
+    <tr><td>9</td><td><b>Reverse Flys</b><br><span class="en">Reverse Fly / Rear Delt Fly</span></td><td>Isoliert die hintere Schulter und den mittleren Trapez. An Maschine oder Kabel mit leichtem Gewicht und hoher Wiederholungszahl.</td></tr>
+    <tr><td>10</td><td><b>Shrugs mit Kurzhanteln</b><br><span class="en">Dumbbell Shrug</span></td><td>Baut den oberen Trapez auf, der den Nacken-Schulter-Übergang füllt. Kurzhanteln statt Langhantel halten die Wirbelsäule in neutraler Position.</td></tr>
+  </table>
+  </div>
+
+  <div class="ex-group" data-g="shoulders">
+  <h3>Shoulders · Schultern</h3>
+  <table>
+    <tr><th>#</th><th>Übung</th><th>Erklärung</th></tr>
+    <tr><td>1</td><td><b>Seitheben mit Kurzhanteln</b><br><span class="en">Dumbbell Lateral Raise</span></td><td>Die wichtigste Übung für Schulterbreite — die seitliche Schulter reagiert fast nur auf diese Bewegung. Leicht bis moderat, dafür sauber und oft.</td></tr>
+    <tr><td>2</td><td><b>Seitheben am Kabel, einarmig</b><br><span class="en">Cable Lateral Raise</span></td><td>Spannung schon in der Startposition, wo Kurzhanteln nichts leisten. Die beste Variante für konstanten Reiz über den ganzen Weg.</td></tr>
+    <tr><td>3</td><td><b>Schulterdrücken mit Kurzhanteln, sitzend</b><br><span class="en">Seated Dumbbell Shoulder Press</span></td><td>Grundübung für die vordere und seitliche Schulter. Die Rückenlehne stützt die Wirbelsäule — für dich Pflicht statt stehendem Drücken.</td></tr>
+    <tr><td>4</td><td><b>Schulterdrücken an der Maschine</b><br><span class="en">Machine Shoulder Press</span></td><td>Geführt und komplett rückenentlastet — hier kannst du bedenkenlos schwer werden oder ans Muskelversagen gehen.</td></tr>
+    <tr><td>5</td><td><b>Arnold Press</b><br><span class="en">Arnold Press</span></td><td>Die Drehbewegung verlängert den Spannungsbogen und trifft vordere plus seitliche Schulter in einer Übung. Sitzend mit Lehne ausführen.</td></tr>
+    <tr><td>6</td><td><b>Face Pulls</b><br><span class="en">Face Pull</span></td><td>Auch hier gelistet, weil die hintere Schulter zur runden 3D-Schulter gehört und bei den meisten unterentwickelt ist.</td></tr>
+    <tr><td>7</td><td><b>Reverse Flys an der Maschine</b><br><span class="en">Machine Reverse Fly</span></td><td>Bequemste Art, die hintere Schulter isoliert zu treffen. Brust an der Auflage, hohe Wiederholungen.</td></tr>
+    <tr><td>8</td><td><b>Frontheben am Kabel</b><br><span class="en">Cable Front Raise</span></td><td>Isoliert die vordere Schulter — meist optional, weil sie beim Drücken schon viel abbekommt. Nur einsetzen, wenn die Front hinterherhinkt.</td></tr>
+  </table>
+  </div>
+
+  <div class="ex-group" data-g="legs">
+  <h3>Legs · Beine</h3>
+  <table>
+    <tr><th>#</th><th>Übung</th><th>Erklärung</th></tr>
+    <tr><td>1</td><td><b>Beinpresse</b><br><span class="en">Leg Press</span></td><td>Schwere Quadrizeps- und Gesäss-Arbeit mit komplett gestütztem Rücken. Nicht zu tief absenken, damit das Becken an der Lehne bleibt.</td></tr>
+    <tr><td>2</td><td><b>Hack Squat Maschine</b><br><span class="en">Hack Squat</span></td><td>Kniebeugen-Gefühl mit Rückenpolster statt Langhantel auf der Wirbelsäule — der beste Squat-Ersatz bei Bandscheiben-Vorgeschichte.</td></tr>
+    <tr><td>3</td><td><b>Bulgarische Split Squats</b><br><span class="en">Bulgarian Split Squat</span></td><td>Einbeinige Königsübung: hoher Muskelreiz für Quadrizeps und Gesäss bei geringer Wirbelsäulenlast, weil die Kurzhanteln seitlich hängen.</td></tr>
+    <tr><td>4</td><td><b>Goblet Squat</b><br><span class="en">Goblet Squat</span></td><td>Kniebeuge mit Kurzhantel vor der Brust — das Gegengewicht hält den Oberkörper automatisch aufrecht und die Lendenwirbelsäule neutral.</td></tr>
+    <tr><td>5</td><td><b>Beinstrecker</b><br><span class="en">Leg Extension</span></td><td>Einzige Übung, die den Quadrizeps über seine volle Funktion isoliert. Hohe Wiederholungen, kontrolliert halten statt schwer reissen.</td></tr>
+    <tr><td>6</td><td><b>Beinbeugen liegend o. sitzend</b><br><span class="en">Leg Curl</span></td><td>Isoliert den Beinbeuger, der beim Velofahren und der Beinpresse zu kurz kommt. Wichtig für Kniestabilität und die Ansicht von hinten.</td></tr>
+    <tr><td>7</td><td><b>Hip Thrust</b><br><span class="en">Hip Thrust</span></td><td>Stärkste Gesäss-Übung überhaupt, dabei rückenfreundlich: die Last liegt auf dem Becken, nicht auf der Wirbelsäule. Mehr Gesäss = mehr Watt am Berg.</td></tr>
+    <tr><td>8</td><td><b>Ausfallschritte gehend</b><br><span class="en">Walking Lunges</span></td><td>Funktionell und velo-relevant, trainiert Balance gleich mit. Mit Kurzhanteln seitlich, Schritte kontrolliert — bei Rückenmeldung weglassen.</td></tr>
+    <tr><td>9</td><td><b>Wadenheben stehend</b><br><span class="en">Standing Calf Raise</span></td><td>Trifft den grossen Wadenmuskel bei gestrecktem Knie. Ganz absenken, oben eine Sekunde halten — Waden brauchen vollen Bewegungsumfang.</td></tr>
+    <tr><td>10</td><td><b>Wadenheben sitzend</b><br><span class="en">Seated Calf Raise</span></td><td>Ergänzt die stehende Variante: bei gebeugtem Knie arbeitet der tiefere Soleus, der der Wade Dicke von der Seite gibt.</td></tr>
+  </table>
+  </div>
+</section>
+
+<!-- ================= SUPPLEMENTE ================= -->
+<section id="supps">
+  <h2>Dein Stack (ab heute)</h2>
+  <table>
+    <tr><th>Supplement</th><th>Dosis / Timing</th><th>Warum</th></tr>
+    <tr><td><b>Kreatin Monohydrat</b></td><td>5 g täglich, Zeitpunkt egal, auch am Event-Tag</td><td>Kraft halten im Defizit + zieht Wasser <i>in</i> den Muskel = vollere Optik. Heute starten, wirkt nach ~2–3 Wochen voll — passt exakt bis zum 10.8.</td></tr>
+    <tr><td><b>Whey</b></td><td>30–40 g morgens (statt deiner 20 g) + 30 g nach dem Training</td><td>210 g Protein/Tag sind ohne Shakes mühsam</td></tr>
+    <tr><td><b>Casein o. Magerquark</b></td><td>30 g / 250 g vor dem Schlafen</td><td>Langsames Protein über Nacht = Muskelschutz</td></tr>
+    <tr><td><b>Koffein</b></td><td>200 mg vor dem Training, nicht nach 14 Uhr</td><td>Leistung im Defizit + Appetitdämpfer</td></tr>
+    <tr><td><b>Elektrolyte</b></td><td>In die Bidons bei Ausfahrten ab 60 min</td><td>Du schwitzt Natrium raus — Krämpfe und Leistungsloch vermeiden</td></tr>
+    <tr><td><b>Omega-3</b></td><td>2–3 g EPA/DHA täglich</td><td>Regeneration, Gelenke, Herz</td></tr>
+    <tr><td><b>Vitamin D3</b></td><td>2000 IE täglich</td><td>Standard-Absicherung</td></tr>
+    <tr><td><b>Magnesium</b></td><td>300–400 mg abends</td><td>Schlafqualität + Muskel­funktion bei hohem Volumen</td></tr>
+  </table>
+  <p class="note">Bewusst nicht drin: Fatburner (Wirkung ≈ Espresso, Preis ≈ Abzocke), BCAA (überflüssig bei 210 g Protein), Testo-Booster (wirkungslos). Falls du regelmässig Medikamente nimmst, Stack kurz mit Arzt/Apotheke abgleichen — ich bin kein Arzt.</p>
+</section>
+
+<!-- ================= REGELN ================= -->
+<section id="regeln">
+  <h2>Tägliche Nicht-Verhandelbar-Liste</h2>
+  <div class="card">
+    <label class="check"><input type="checkbox"><span>Kalorien + Protein getrackt (2300 / 2800 kcal · 210 g P)</span></label>
+    <label class="check"><input type="checkbox"><span>Kreatin 5 g genommen</span></label>
+    <label class="check"><input type="checkbox"><span>Morgens nüchtern gewogen &amp; notiert</span></label>
+    <label class="check"><input type="checkbox"><span>8000+ Schritte (zusätzlich zu Gym/Velo)</span></label>
+    <label class="check"><input type="checkbox"><span>0 Alkohol</span></label>
+    <label class="check"><input type="checkbox"><span>Im Bett für 7–8 h Schlaf</span></label>
+  </div>
+  <p class="note" style="margin-top:8px">Häkchen sind nur für heute — die Liste merkt sich nichts. Fürs echte Tracking: Waage-App + Trainings-Log.</p>
+
+  <h2>Wöchentlich</h2>
+  <ul>
+    <li><b>Montag:</b> Wochenschnitt Gewicht checken → Kalorien nach Checkpoint-Regel anpassen (siehe Ernährung).</li>
+    <li><b>Sonntag:</b> Fortschrittsfotos (frontal, seitlich, Rücken — gleiches Licht, gleicher Ort). Die Waage lügt manchmal, Fotos nie.</li>
+    <li>Gewicht ins Fitness-Projekt eintragen, dann kann ich beim nächsten Check-in direkt anpassen.</li>
+  </ul>
+
+  <h2>Wenn etwas schiefläuft</h2>
+  <ul>
+    <li><b>Ein Tag entgleist?</b> Egal. Nächste Mahlzeit normal weiter — nicht „kompensieren" mit Hungern oder Extra-Cardio.</li>
+    <li><b>Training fühlt sich ab Woche 3 zäh an?</b> Normal im Defizit. Gewichte halten, notfalls 1 Satz pro Übung streichen — nicht die Last senken.</li>
+    <li><b>Rücken meldet sich?</b> Siehe Stopp-Signal im Training-Tab. Velo Z2 geht meist trotzdem.</li>
+    <li><b>Heisshunger abends?</b> Magerquark mit Süssstoff/Beeren, Zero-Getränke, früher ins Bett.</li>
+  </ul>
+
+  <h2>Nach dem 10. August</h2>
+  <p>Nicht in die „endlich vorbei"-Fressphase kippen — der klassische Fehler nach jedem Peak. 2–3 Tage bei ~2800 kcal geniessen, dann moderates Defizit (~2500–2600 kcal, −0,5 bis −0,7 kg/Woche) bis zu deinen 90 kg. Ankunft realistisch: <b>Ende November / Anfang Dezember</b> — und dann in deutlich besserer Form als je zuvor, weil die Muskeln erhalten bleiben.</p>
+
+  <footer>Erstellt 13.07.2026 · Basis: 102 kg, 188 cm, Jahrgang 1979, Bench 5×100 kg, 2 Bandscheibenvorfälle (keine schweren axialen Wirbelsäulenlasten) · Kein medizinischer Rat — bei Rücken- oder Herz-Kreislauf-Symptomen ärztlich abklären.</footer>
+</section>
+
+</div>
+<script>
+  // Tabs
+  var nav=document.getElementById('nav');
+  nav.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    nav.querySelectorAll('button').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active');
+    document.querySelectorAll('section').forEach(function(s){s.classList.remove('show')});
+    document.getElementById(b.dataset.t).classList.add('show');
+    window.scrollTo({top:0});
+  });
+  // Übungen-Filter
+  var ef=document.getElementById('exfilter');
+  ef.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    ef.querySelectorAll('button').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active');
+    var g=b.dataset.g;
+    document.querySelectorAll('.ex-group').forEach(function(x){
+      x.classList.toggle('hidden', g!=='all' && x.dataset.g!==g);
+    });
+  });
+  // Countdown
+  var ev=new Date(2026,7,10), now=new Date();
+  var d=Math.max(0,Math.ceil((ev-new Date(now.getFullYear(),now.getMonth(),now.getDate()))/86400000));
+  document.getElementById('days').textContent=d;
+</script>
+</body>
+</html>
