@@ -22,13 +22,14 @@
   p b, li b, .tip b, .warn b, p strong, li strong{font-weight:400}
   .warn b{text-transform:uppercase;letter-spacing:.05em}
   .wrap{max-width:980px;margin:0 auto;padding:24px 20px 80px}
-  header{padding:28px 0 18px;border-bottom:3px solid var(--rb-anthrazit)}
-  .rb-mark{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--rb-black);color:var(--rb-white);font-family:var(--font-body);font-weight:700;font-size:1.15rem;margin-bottom:14px}
-  header h1{font-family:var(--font-head);font-weight:400;font-size:3rem;line-height:1;letter-spacing:.06em;text-transform:uppercase;color:var(--rb-black)}
+  header{padding:20px 0 14px;border-bottom:3px solid var(--rb-anthrazit)}
+  .brandrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .rb-mark{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--rb-black);color:var(--rb-white);font-family:var(--font-body);font-weight:700;font-size:1.05rem;flex:0 0 auto}
+  header h1{font-family:var(--font-head);font-weight:400;font-size:2.3rem;line-height:1;letter-spacing:.06em;text-transform:uppercase;color:var(--rb-black)}
   header h1 span{color:var(--rb-blue)}
-  header p{color:var(--rb-anthrazit2);margin-top:10px;max-width:660px;font-size:.97rem}
-  .countdown{display:inline-block;margin:14px 0 20px;background:var(--rb-white-soft);border-radius:10px;padding:8px 16px;font-weight:700;letter-spacing:.02em}
-  .countdown b{color:var(--rb-blue);font-size:1.1rem}
+  header p{color:var(--rb-anthrazit2);margin-top:8px;max-width:660px;font-size:.94rem}
+  .countdown{margin-left:auto;background:var(--rb-white-soft);border-radius:8px;padding:6px 12px;font-weight:700;letter-spacing:.02em;font-size:.9rem}
+  .countdown b{color:var(--rb-blue);font-size:1rem}
   nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);display:flex;flex-wrap:wrap;gap:6px;padding:12px 0;border-bottom:1px solid var(--line);margin-bottom:22px}
   nav button{background:var(--rb-white);color:var(--rb-anthrazit);border:1.5px solid var(--rb-anthrazit);border-radius:10px;padding:8px 16px;font-family:var(--font-body);font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;transition:.15s}
   nav button.active{background:var(--rb-blue);color:var(--rb-white);border-color:var(--rb-blue)}
@@ -42,11 +43,11 @@
   p.note{color:var(--muted);font-size:.94rem}
   .grid{display:grid;gap:14px}
   .g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-  .g3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-  .card{background:var(--rb-white-soft);border-radius:14px;padding:18px}
-  .card h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.09em;color:var(--rb-anthrazit2);margin-bottom:6px;font-weight:700}
-  .big{font-family:var(--font-body);font-size:1.75rem;font-weight:700;letter-spacing:0;color:var(--rb-black);line-height:1.15}
-  .big small{font-size:.82rem;color:var(--muted);font-weight:500}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+  .card{background:var(--rb-white-soft);border-radius:12px;padding:12px 14px}
+  .card h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;color:var(--rb-anthrazit2);margin-bottom:3px;font-weight:700}
+  .big{font-family:var(--font-body);font-size:1.45rem;font-weight:700;letter-spacing:0;color:var(--rb-black);line-height:1.15}
+  .big small{font-size:.78rem;color:var(--muted);font-weight:500}
   .accent{color:var(--rb-black)} .green{color:var(--rb-blue)} .blue{color:var(--rb-black)}
   table{width:100%;border-collapse:collapse;font-size:.92rem;margin:10px 0}
   th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
@@ -87,10 +88,12 @@
 <div class="wrap">
 
 <header>
-  <div class="rb-mark">rb</div>
-  <h1>Peak Plan · <span>10. August 2026</span></h1>
+  <div class="brandrow">
+    <div class="rb-mark">rb</div>
+    <h1>Peak Plan · <span>10. August 2026</span></h1>
+    <div class="countdown">Noch <b id="days">–</b> Tage</div>
+  </div>
   <p>4-Wochen-Programm nach Bodybuilding-Prinzipien: aggressiver, aber muskelschonender Cut über 3 Wochen, danach eine klassische Peak Week fürs Shooting. Erstellt am 13. Juli für Roman (47, 188&nbsp;cm, 102&nbsp;kg, Bench 5×100&nbsp;kg).</p>
-  <div class="countdown">Noch <b id="days">–</b> Tage bis zum Event</div>
 </header>
 
 <nav id="nav">
